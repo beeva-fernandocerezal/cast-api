@@ -6,5 +6,8 @@ WORKDIR /usr/src/app
 COPY package.json package.json
 RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf /tmp/*
 COPY . ./
+COPY bi-contents /usr/src/app
+COPY bi-contents/bi-schedule.cron /etc/cron.d/
+RUN chmod +x /usr/src/app/bi-contents/*.sh
 ENV INITSYSTEM on
 CMD ["npm", "start"]

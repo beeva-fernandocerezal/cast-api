@@ -1,0 +1,5 @@
+30 13 * * 1-5 /usr/src/app/bi-contents/tv-manager.sh
+00 15 * * 1-5 /usr/src/app/bi-contents/show-logo.sh
+00 17 * * 1-5 /usr/src/app/bi-contents/bee-on-time.sh
+40 18 * * 1-5 /usr/src/app/bi-contents/show-logo.sh
+
