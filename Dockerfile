@@ -7,8 +7,9 @@ COPY package.json package.json
 RUN JOBS=MAX npm install --production --unsafe-perm 
 COPY . ./
 COPY bi-contents /usr/src/app
-COPY bi-contents/bi-schedule.cron /etc/cron.d/
+COPY bi-contents/bischedule /etc/cron.d/
 RUN chmod +x /usr/src/app/bi-contents/*.sh && \
+        chmod 0644 /etc/cron.d/bischedule && \ 
 	apt-get update && \
 	apt-get -y install cron && \
 	systemctl enable cron
